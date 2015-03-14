@@ -1,6 +1,6 @@
 {
     "name": "nikapps/bazaar-api-php",
-    "description": "An API wrapper for CafeBazaar",
+    "description": "An PHP API wrapper for CafeBazaar",
     "keywords": [
         "CafeBazaar",
         "API",
