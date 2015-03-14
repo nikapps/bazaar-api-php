@@ -249,7 +249,7 @@ $bazaarApi->setTokenManager($customTokenManager);
 ## Dependencies
 
 * [GuzzleHttp 5.2.x](https://packagist.org/packages/guzzlehttp/guzzle)
-* [Crabon 1.x](https://packagist.org/packages/nesbot/carbon)
+* [Carbon 1.x](https://packagist.org/packages/nesbot/carbon)
 
 
 
