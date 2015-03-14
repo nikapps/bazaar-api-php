@@ -1,0 +1,46 @@
+{
+    "name": "nikapps/bazaar-api-php",
+    "description": "An API wrapper for CafeBazaar",
+    "keywords": [
+        "CafeBazaar",
+        "API",
+        "Bazaar",
+        "Wrapper",
+        "Cafebazaar Api",
+        "In App Purchase",
+        "iap"
+    ],
+
+    "license": "MIT",
+    "type": "project",
+
+    "authors": [
+        {
+            "name": "Ali Borhani",
+            "email": "aliborhani1@gmail.com"
+        },
+        {
+            "name": "Hossein Moradgholi",
+            "email": "h.moradgholi@icloud.com"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "~5.2",
+        "nesbot/carbon": "~1.17"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Nikapps\\BazaarApiPhp\\": "src/",
+            "Nikapps\\BazaarApiPhpTests\\": "tests/"
+        }
+    },
+
+    "minimum-stability": "stable"
+
+}

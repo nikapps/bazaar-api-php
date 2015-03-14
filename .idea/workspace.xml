@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8e5cad42-7eac-4396-b9f3-a96fed5fb005" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Configs/AccountConfig.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Configs/ApiConfig.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Mocks/ApiMockResponse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Requests/AuthorizationRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BazaarApi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BazaarApiClient.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BazaarApiErrors.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exceptions/BazaarApiException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Requests/BazaarApiRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Responses/BazaarApiResponse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/BazaarResponseHandlerInterface.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Responses/CancelSubscription.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/CancelSubscriptionHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Requests/CancelSubscriptionRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/CancelSubscriptionTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exceptions/ExpiredAccessTokenException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Responses/FetchRefreshToken.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/FetchRefreshTokenHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/TokenManagers/FileTokenManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exceptions/InvalidJsonException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exceptions/InvalidPackageNameException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exceptions/InvalidTokenException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Mocks/MockCancelSubscriptionResponse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Mocks/MockPurchaseResponse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Mocks/MockResponse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Mocks/MockSubscriptionResponse.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Mocks/MockTokenManager.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exceptions/NetworkErrorException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exceptions/NotFoundException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Responses/Purchase.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/PurchaseHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Requests/PurchaseStatusRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/PurchaseTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Responses/RefreshToken.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/RefreshTokenHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Requests/RefreshTokenRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Responses/Subscription.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Handlers/SubscriptionHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Models/Requests/SubscriptionStatusRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/SubscriptionTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/TestCase.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/TokenManagers/TokenManagerInterface.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/TokenTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/bazaar-api-php.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <ignored path="bazaar-api-php.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="bazaar-api-php" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.10176991" vertical-offset="0" max-vertical-offset="678">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/TokenManagers/FileTokenManager.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/Authorization.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/RefreshToken.php" />
+        <option value="$PROJECT_DIR$/src/Configs/AccountConfig.php" />
+        <option value="$PROJECT_DIR$/src/Configs/ApiConfig.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/NotFoundPurchaseException.php" />
+        <option value="$PROJECT_DIR$/src/BazaarApiErrors.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/NotFoundSubscriptionException.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/NetworkErrorException.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/InvalidTokenException.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/InvalidPackageNameException.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/ExpiredAccessTokenException.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/BazaarApiException.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/NotFoundException.php" />
+        <option value="$PROJECT_DIR$/src/Handlers/BazaarResponseHandlerInterface.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/BazaarApiRequest.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/AuthorizationRequest.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/CancelSubscriptionRequest.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/PurchaseStatusRequest.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/RefreshTokenRequest.php" />
+        <option value="$PROJECT_DIR$/src/Models/Requests/SubscriptionStatusRequest.php" />
+        <option value="$PROJECT_DIR$/src/Models/Responses/Purchase.php" />
+        <option value="$PROJECT_DIR$/src/Models/Responses/Subscription.php" />
+        <option value="$PROJECT_DIR$/src/Models/Responses/FetchRefreshToken.php" />
+        <option value="$PROJECT_DIR$/src/Models/Responses/RefreshToken.php" />
+        <option value="$PROJECT_DIR$/src/Handlers/CancelSubscriptionHandler.php" />
+        <option value="$PROJECT_DIR$/src/Exceptions/InvalidJsonException.php" />
+        <option value="$PROJECT_DIR$/src/Models/Responses/BazaarApiResponse.php" />
+        <option value="$PROJECT_DIR$/src/Handlers/PurchaseHandler.php" />
+        <option value="$PROJECT_DIR$/src/Handlers/SubscriptionHandler.php" />
+        <option value="$PROJECT_DIR$/src/Handlers/RefreshTokenHandler.php" />
+        <option value="$PROJECT_DIR$/src/Handlers/FetchRefreshTokenHandler.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/tests/Mocks/MockTokenManager.php" />
+        <option value="$PROJECT_DIR$/tests/Mocks/MockSubscriptionResponse.php" />
+        <option value="$PROJECT_DIR$/tests/Mocks/MockPurchaseResponse.php" />
+        <option value="$PROJECT_DIR$/tests/Mocks/MockCancelSubscriptionResponse.php" />
+        <option value="$PROJECT_DIR$/tests/TestCase.php" />
+        <option value="$PROJECT_DIR$/tests/Purchase.php" />
+        <option value="$PROJECT_DIR$/tests/Mocks/MockResponse.php" />
+        <option value="$PROJECT_DIR$/src/BazaarApiClient.php" />
+        <option value="$PROJECT_DIR$/phpunit.xml" />
+        <option value="$PROJECT_DIR$/tests/Mocks/SubscriptionTest.php" />
+        <option value="$PROJECT_DIR$/src/BazaarApi.php" />
+        <option value="$PROJECT_DIR$/src/Models/Responses/CancelSubscription.php" />
+        <option value="$PROJECT_DIR$/tests/Mocks/ApiMockResponse.php" />
+        <option value="$PROJECT_DIR$/tests/SubscriptionTest.php" />
+        <option value="$PROJECT_DIR$/tests/CancelSubscriptionTest.php" />
+        <option value="$PROJECT_DIR$/tests/PurchaseTest.php" />
+        <option value="$PROJECT_DIR$/tests/TokenTest.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="721" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bazaar-api-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bazaar-api-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bazaar-api-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/src/Exceptions" />
+      <recent name="$PROJECT_DIR$/src/Handlers" />
+      <recent name="$PROJECT_DIR$/src/Models/Responses" />
+      <recent name="$PROJECT_DIR$/src/Models/Requests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-env-vars>false</pass-parent-env-vars>
+      <envs />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8e5cad42-7eac-4396-b9f3-a96fed5fb005" name="Default" comment="" />
+      <created>1426266016896</created>
+      <option name="number" value="Default" />
+      <updated>1426266016896</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="721" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Handlers/CancelSubscriptionHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="138" max-vertical-offset="667">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TokenManagers/TokenManagerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16961652" vertical-offset="0" max-vertical-offset="736">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6887218" vertical-offset="25808" max-vertical-offset="26473">
+          <caret line="1142" column="3" selection-start-line="1142" selection-start-column="3" selection-end-line="1142" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TokenManagers/FileTokenManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23746313" vertical-offset="0" max-vertical-offset="2093">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/InvalidTokenException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.033923306" vertical-offset="0" max-vertical-offset="678">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/InvalidPackageNameException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.033923306" vertical-offset="0" max-vertical-offset="678">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/ExpiredAccessTokenException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.033923306" vertical-offset="0" max-vertical-offset="678">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/BazaarApiException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16961652" vertical-offset="0" max-vertical-offset="678">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/NetworkErrorException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33923304" vertical-offset="0" max-vertical-offset="805">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Requests/BazaarApiRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6784661" vertical-offset="1127" max-vertical-offset="1909">
+          <caret line="71" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Requests/AuthorizationRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6946903" vertical-offset="610" max-vertical-offset="1288">
+          <caret line="48" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Requests/CancelSubscriptionRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86165416" vertical-offset="2141" max-vertical-offset="2944">
+          <caret line="119" column="20" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Configs/AccountConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8820059" vertical-offset="644" max-vertical-offset="3335">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Responses/RefreshToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06784661" vertical-offset="207" max-vertical-offset="2024">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/InvalidJsonException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16961652" vertical-offset="0" max-vertical-offset="678">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Responses/BazaarApiResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42330384" vertical-offset="196" max-vertical-offset="874">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Responses/Subscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52507377" vertical-offset="1162" max-vertical-offset="2139">
+          <caret line="66" column="7" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Responses/FetchRefreshToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72861356" vertical-offset="1783" max-vertical-offset="2461">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/RefreshTokenHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47492626" vertical-offset="138" max-vertical-offset="1518">
+          <caret line="22" column="20" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/SubscriptionHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34586465" vertical-offset="322" max-vertical-offset="1725">
+          <caret line="27" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/PurchaseHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6445428" vertical-offset="81" max-vertical-offset="1748">
+          <caret line="54" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/FetchRefreshTokenHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6784661" vertical-offset="0" max-vertical-offset="1587">
+          <caret line="22" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/CancelSubscriptionHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49115044" vertical-offset="12" max-vertical-offset="966">
+          <caret line="16" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Handlers/BazaarResponseHandlerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44100294" vertical-offset="0" max-vertical-offset="678">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55899704" vertical-offset="449" max-vertical-offset="1196">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Message/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33233082" vertical-offset="1895" max-vertical-offset="4853">
+          <caret line="95" column="17" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/guzzlehttp/streams/src/StreamInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4100294" vertical-offset="2450" max-vertical-offset="3795">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Message/AbstractMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="579" max-vertical-offset="5957">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mocks/MockCancelSubscriptionResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32790223" vertical-offset="0" max-vertical-offset="667">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BazaarApiErrors.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25698325" vertical-offset="0" max-vertical-offset="299">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Configs/ApiConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55338347" vertical-offset="0" max-vertical-offset="5221">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Responses/Purchase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="142" max-vertical-offset="2829">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Requests/PurchaseStatusRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="395" max-vertical-offset="2944">
+          <caret line="28" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mocks/MockResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5427729" vertical-offset="0" max-vertical-offset="1150">
+          <caret line="17" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BazaarApiClient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84661657" vertical-offset="817" max-vertical-offset="2323">
+          <caret line="70" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5427729" vertical-offset="0" max-vertical-offset="678">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/NotFoundException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20353982" vertical-offset="0" max-vertical-offset="678">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33923304" vertical-offset="0" max-vertical-offset="966">
+          <caret line="12" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Requests/SubscriptionStatusRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1037594" vertical-offset="552" max-vertical-offset="2944">
+          <caret line="28" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Responses/CancelSubscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42330384" vertical-offset="12" max-vertical-offset="690">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Requests/RefreshTokenRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64454275" vertical-offset="0" max-vertical-offset="1242">
+          <caret line="20" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mocks/MockPurchaseResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06784661" vertical-offset="0" max-vertical-offset="828">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mocks/MockSubscriptionResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16961652" vertical-offset="0" max-vertical-offset="782">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BazaarApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33233082" vertical-offset="2424" max-vertical-offset="8142">
+          <caret line="125" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/SubscriptionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8646617" vertical-offset="370" max-vertical-offset="2047">
+          <caret line="75" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CancelSubscriptionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2075188" vertical-offset="669" max-vertical-offset="1863">
+          <caret line="70" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mocks/MockTokenManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.40707964" vertical-offset="368" max-vertical-offset="1403">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/PurchaseTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44661653" vertical-offset="577" max-vertical-offset="2760">
+          <caret line="45" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mocks/ApiMockResponse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.56047195" vertical-offset="840" max-vertical-offset="1518">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TokenTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48421052" vertical-offset="0" max-vertical-offset="4600">
+          <caret line="24" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10176991" vertical-offset="0" max-vertical-offset="678">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
