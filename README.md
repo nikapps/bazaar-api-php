@@ -3,7 +3,7 @@ A PHP API wrapper for CafeBazaar
 
 
 ## Installation
-Using composer, add this [package](https://packagist.org/packages/nikapps/bazaar-api-laravel) dependency to your Laravel's composer.json :
+Using composer, add this [package](https://packagist.org/packages/nikapps/bazaar-api-php) dependency to your composer.json :
 
 ```
 composer require nikapps/bazaar-api-php
@@ -260,6 +260,16 @@ Run:
 phpunit
 ```
 
+## Bazaar Responses
+
+#### Purchase: 
+![Purchase Response - CafeBazaar Api](https://www.dropbox.com/s/0jya8qr0hamvdyb/purchase.png?raw=1)
+
+#### Subscription: 
+![Subscription Response - CafeBazaar Api](https://www.dropbox.com/s/gph2in3ii7jnmcy/subscription.png?raw=1)
+
+#### Cancel Subscription: 
+![Cancel Subscription Response - CafeBazaar Api](https://www.dropbox.com/s/2qhmisxdgzicdek/cancel_subscription.png?raw=1)
 
 ## Contribute
 
