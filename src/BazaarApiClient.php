@@ -67,7 +67,11 @@ class BazaarApiClient {
         $response = null;
         try {
             /** @var FutureResponse $response */
-            $response = $this->client->get($this->request->getUri(), $this->requestOptions);
+            if($this->request->isPost()){
+                $response = $this->client->post($this->request->getUri(), $this->requestOptions);
+            }else {
+                $response = $this->client->get($this->request->getUri(), $this->requestOptions);
+            }
         } catch (ClientException $e) {
 
             $networkException = new NetworkErrorException();
