@@ -39,7 +39,7 @@ class PurchaseStatusRequest extends BazaarApiRequest {
      */
     public function getUri() {
 
-        $uri = $this->getApiConfig()->getCancelSubscriptionPath();
+        $uri = $this->getApiConfig()->getPurchasePath();
 
         $toReplace = [
             '{package}'         => $this->getPackage(),
