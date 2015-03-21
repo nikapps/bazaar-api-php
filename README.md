@@ -1,6 +1,4 @@
 # Bazaar-Api-PHP (BazaarApi for PHP)
-A PHP API wrapper for CafeBazaar 
-
 
 ## Installation
 Using composer, add this [package](https://packagist.org/packages/nikapps/bazaar-api-php) dependency to your composer.json :
@@ -75,7 +73,6 @@ echo $fetchRefreshToken->getRefreshToken();
 
 
 #### Purchase
-If you want to get a purchase information:
 
 ~~~php
 //creating token manager based on file
@@ -101,7 +98,6 @@ echo "Purchase State: " . $purchase->getPurchaseState();
 ~~~
 
 #### Subscription
-If you want to get a subscription information:
 
 ~~~php
 //creating token manager based on file
@@ -126,7 +122,6 @@ echo "Auto Renewing: " . $subscription->isAutoRenewing(); // boolean
 ~~~
 
 #### Cancel Subscription
-If you want to cancel a subscription:
 
 ~~~php
 //creating token manager based on file
@@ -149,7 +144,6 @@ echo "Is Cancelled: " . $cancelSubscription->isCancelled();
 ~~~
 
 #### Refresh Token
-If you want to refresh token and get new access token:
 
 ~~~php
 $bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
@@ -198,7 +192,7 @@ you can get guzzle exception by `getClientException`
 
 Token manager manages loading,storing and checking expiration of access token. By default you can use `FileTokenManager` is provided by this package and store access token in file.
 
-If you want to have a custom token mangaer to store token in database, cache, etc, you can implement `TokenManagerInterface`.
+If you want to have a custom token mangaer and storing tokens in your database or cache, you can implement `TokenManagerInterface`.
 
 ~~~php
 class CustomTokenManager implements \Nikapps\BazaarApiPhp\TokenManagers\TokenManagerInterface{
@@ -235,7 +229,7 @@ class CustomTokenManager implements \Nikapps\BazaarApiPhp\TokenManagers\TokenMan
 }
 ~~~
 
-after implementing:
+Then, you can use it in this way :
 
 ~~~php
 $bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
@@ -243,7 +237,6 @@ $bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
 $customTokenManager = new CustomTokenManager();
 $bazaarApi->setTokenManager($customTokenManager);
 ~~~
-
 
 
 ## Dependencies
