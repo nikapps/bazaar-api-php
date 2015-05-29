@@ -292,7 +292,7 @@ $accountConfig->setClientId('your_client_id')
 $fileTokenManager = new FileTokenManager();
 $fileTokenManager->setPath(__DIR__ . '/somewhere/safe/token.json');
 
-//initiating BazaarApi
+//initializing BazaarApi
 $bazaarApi = new BazaarApi();
 $bazaarApi->setAccountConfig($this->getAccountConfig());
 $bazaarApi->setTokenManager($fileTokenManager);
