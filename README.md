@@ -1,7 +1,7 @@
 # Bazaar-Api-PHP (BazaarApi for PHP)
 
 ## Installation
-Using composer, add this [package](https://packagist.org/packages/nikapps/bazaar-api-php) dependency to your composer.json :
+Using [Composer](https://getcomposer.org), add this [package](https://packagist.org/packages/nikapps/bazaar-api-php) dependency to your composer.json :
 
 ```
 composer require nikapps/bazaar-api-php
@@ -263,6 +263,79 @@ phpunit
 
 #### Cancel Subscription: 
 ![Cancel Subscription Response - CafeBazaar Api](https://www.dropbox.com/s/2qhmisxdgzicdek/cancel_subscription.png?raw=1)
+
+## Simple Demo!
+
+This is a very simple demo:
+
+~~~php
+<?php
+use Nikapps\BazaarApiPhp\BazaarApi;
+use Nikapps\BazaarApiPhp\Configs\AccountConfig;
+use Nikapps\BazaarApiPhp\Exceptions\NotFoundException;
+use Nikapps\BazaarApiPhp\Models\Requests\PurchaseStatusRequest;
+use Nikapps\BazaarApiPhp\Models\Responses\Purchase;
+use Nikapps\BazaarApiPhp\TokenManagers\FileTokenManager;
+
+//load composer autoloader
+require_once __DIR__ . '/vendor/autoload.php';
+
+
+//set account config
+$accountConfig = new AccountConfig();
+
+$accountConfig->setClientId('your_client_id')
+    ->setClientSecret('your_client_secret')
+    ->setRefreshToken('your_refresh_token');
+
+//set file token manager
+$fileTokenManager = new FileTokenManager();
+$fileTokenManager->setPath(__DIR__ . '/somewhere/safe/token.json');
+
+//initiating BazaarApi
+$bazaarApi = new BazaarApi();
+$bazaarApi->setAccountConfig($this->getAccountConfig());
+$bazaarApi->setTokenManager($fileTokenManager);
+
+//creating a purchase status request
+$purchaseStatusRequest = new PurchaseStatusRequest();
+$purchaseStatusRequest->setPackage('com.package.name')
+    ->setProductId('product_id')
+    ->setPurchaseToken('purchase_token');
+
+//REQUESTING:
+try {
+    //get purchase status from cafe bazaar
+    $purchase = $bazaarApi->getPurchase($purchaseStatusRequest);
+
+    if ($purchase->getConsumptionState() == Purchase::CONSUMPTION_STATUS_CONSUMED) {
+        // purchase is consumed
+    }
+
+    if ($purchase->getPurchaseState() == Purchase::PURCHASE_STATUS_PURCHASED) {
+        // purchased
+    }
+
+    echo "Purchase Time: " . $purchase->getPurchaseTime();
+
+} catch (NotFoundException $e) {
+    // purchase is not found!
+
+} catch (Exception $e) {
+
+    /*
+     * Other exceptions:
+     *
+     * @throws Exceptions\ExpiredAccessTokenException
+     * @throws Exceptions\InvalidPackageNameException
+     * @throws Exceptions\InvalidTokenException
+     * @throws Exceptions\NetworkErrorException
+     * @throws Exceptions\InvalidJsonException
+     */
+
+}
+
+~~~
 
 ## Contribute
 
