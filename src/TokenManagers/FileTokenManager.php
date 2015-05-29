@@ -49,8 +49,8 @@ class FileTokenManager implements TokenManagerInterface {
 
         $token = json_decode($tokenJson);
 
-        if (isset($token['token'])) {
-            return $token['token'];
+        if (isset($token['access_token'])) {
+            return $token['access_token'];
         } else {
             return '';
         }
