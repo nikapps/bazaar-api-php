@@ -294,7 +294,7 @@ $fileTokenManager->setPath(__DIR__ . '/somewhere/safe/token.json');
 
 //initializing BazaarApi
 $bazaarApi = new BazaarApi();
-$bazaarApi->setAccountConfig($this->getAccountConfig());
+$bazaarApi->setAccountConfig($accountConfig);
 $bazaarApi->setTokenManager($fileTokenManager);
 
 //creating a purchase status request
