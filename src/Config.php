@@ -1,6 +1,7 @@
 <?php
 namespace Nikapps\BazaarApi;
 
+use Nikapps\BazaarApi\Storage\MemoryTokenStorage;
 use Nikapps\BazaarApi\Storage\TokenStorageInterface;
 
 class Config
@@ -17,6 +18,7 @@ class Config
             'client-id' => 'set-your-client-id',
             'client-secret' => 'set-your-client-secret',
             'refresh-token' => 'your-refresh-token',
+            'storage' => new MemoryTokenStorage(),
             'purchase-url' => 'https://pardakht.cafebazaar.ir/devapi/v2/api/validate/:package_name/inapp/:purchase_id/purchases/:purchase_token/',
             'subscription-url' => 'https://pardakht.cafebazaar.ir/devapi/v2/api/applications/:package_name/subscriptions/:subscription_id/purchases/:purchase_token/',
             'unsubscribe-url' => 'https://pardakht.cafebazaar.ir/devapi/v2/api/applications/:package_name/subscriptions/:subscription_id/purchases/:purchase_token/cancel/',
