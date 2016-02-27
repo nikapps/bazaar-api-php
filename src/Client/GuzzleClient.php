@@ -33,14 +33,14 @@ class GuzzleClient implements ClientInterface
             $response = $this->client->get($url, $options);
 
         } catch (RequestException $e) {
-            if(!$e->hasResponse()) {
+            if (!$e->hasResponse()) {
                 throw $e;
             }
             $response = $e->getResponse();
         }
 
         return json_decode(
-            $response->getBody()->getContents()
+            $response->getBody()->getContents(), true
         );
     }
 
@@ -57,14 +57,14 @@ class GuzzleClient implements ClientInterface
             $response = $this->client->post($url, $options);
 
         } catch (RequestException $e) {
-            if(!$e->hasResponse()) {
+            if (!$e->hasResponse()) {
                 throw $e;
             }
             $response = $e->getResponse();
         }
 
         return json_decode(
-            $response->getBody()->getContents()
+            $response->getBody()->getContents(), true
         );
     }
 }
