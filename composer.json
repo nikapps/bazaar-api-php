@@ -36,7 +36,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Nikapps\\BazaarApi\\Tests": "src/"
+      "Nikapps\\BazaarApi\\Tests\\": "tests/"
     }
   },
   "minimum-stability": "stable"
