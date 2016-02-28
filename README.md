@@ -134,10 +134,11 @@ if ($purchase->failed()) {
 
 **Full Example: [purchase.php](https://github.com/nikapps/bazaar-api-php/blob/master/examples/purchase.php)**
 
-Here is the example of getting state of a subscription:
-
 
 ### Subscription
+
+Here is the example of getting state of a subscription:
+
 
 ~~~php
 $subscription = $bazaar->subscription('com.example.app', 'subscription-id (sku)', 'purchase-token');
