@@ -93,5 +93,4 @@ class Config
     {
         return $this->options['refresh-token'];
     }
-
 }

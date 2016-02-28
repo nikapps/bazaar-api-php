@@ -141,6 +141,4 @@ class Purchase extends Model
     {
         return $this->failed() && $this->error == 'not_found';
     }
-
-
 }

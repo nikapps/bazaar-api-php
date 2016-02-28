@@ -79,6 +79,5 @@ class RefreshTokenTest extends TestCase
 
         $this->assertFalse($token->failed());
         $this->assertEquals('123456', $token->accessToken());
-
     }
 }

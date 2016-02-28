@@ -28,7 +28,6 @@ class MemoryTokenStorageTest extends TestCase
     /** @test */
     public function it_should_say_token_has_been_expired_when_token_does_not_exist()
     {
-
         $storage = new MemoryTokenStorage();
 
         $this->assertTrue($storage->expired());

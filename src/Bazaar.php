@@ -92,7 +92,6 @@ class Bazaar
         ]);
 
         return new Token($response);
-
     }
 
     /**
@@ -286,5 +285,4 @@ class Bazaar
 
         return $token->accessToken();
     }
-
 }

@@ -33,7 +33,6 @@ class GuzzleClientTest extends TestCase
             'key-one' => 'something',
             'key-two' => 'something-else'
         ], $response);
-
     }
 
     /** @test */
@@ -84,7 +83,5 @@ class GuzzleClientTest extends TestCase
             'key-one' => 'something',
             'key-two' => 'something-else'
         ], $response);
-
     }
-
 }

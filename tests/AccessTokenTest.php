@@ -9,8 +9,6 @@ class AccessTokenTest extends TestCase
     /** @test */
     public function it_should_fetch_access_token()
     {
-        $bazaar = $this->makeBazaar();
-
         $redirectUrl = 'http://example.com/callback';
 
         $bazaar = $this->makeBazaar();

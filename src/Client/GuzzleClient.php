@@ -29,7 +29,6 @@ class GuzzleClient implements ClientInterface
     {
         try {
             $response = $this->client->get($url, $options);
-
         } catch (RequestException $e) {
             if (!$e->hasResponse()) {
                 throw $e;
@@ -49,7 +48,6 @@ class GuzzleClient implements ClientInterface
     {
         try {
             $response = $this->client->post($url, $options);
-
         } catch (RequestException $e) {
             if (!$e->hasResponse()) {
                 throw $e;

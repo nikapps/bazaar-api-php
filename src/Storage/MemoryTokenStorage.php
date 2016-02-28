@@ -9,7 +9,7 @@ class MemoryTokenStorage implements TokenStorageInterface
     /**
      * token object
      *
-     * Token
+     * @var Token
      */
     protected $token;
 

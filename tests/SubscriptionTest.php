@@ -36,7 +36,6 @@ class SubscriptionTest extends TestCase
         $this->assertEquals(1100000000000, $subscription->endTime());
         $this->assertTrue($subscription->autoRenewing());
         $this->assertTrue($subscription->expired());
-
     }
 
     /** @test */
@@ -80,5 +79,4 @@ class SubscriptionTest extends TestCase
         $this->assertEquals('not_found', $subscription->error());
         $this->assertEquals('The requested purchase is not found!', $subscription->errorDescription());
     }
-
 }

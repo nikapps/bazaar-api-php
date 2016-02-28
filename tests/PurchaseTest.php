@@ -36,7 +36,6 @@ class PurchaseTest extends TestCase
         $this->assertTrue($purchase->purchased());
         $this->assertFalse($purchase->consumed());
         $this->assertEquals('payload-123456', $purchase->payload());
-
     }
 
     /** @test */
@@ -78,6 +77,4 @@ class PurchaseTest extends TestCase
         $this->assertEquals('not_found', $purchase->error());
         $this->assertEquals('The requested purchase is not found!', $purchase->errorDescription());
     }
-
-
 }

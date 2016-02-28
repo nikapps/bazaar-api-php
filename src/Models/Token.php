@@ -108,5 +108,4 @@ class Token extends Model
     {
         return $this->scope;
     }
-
 }

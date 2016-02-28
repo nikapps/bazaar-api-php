@@ -49,5 +49,4 @@ class UnsubscribeTest extends TestCase
         $this->assertEquals('not_found', $unsubscribe->error());
         $this->assertEquals('The requested purchase is not found!', $unsubscribe->errorDescription());
     }
-
 }

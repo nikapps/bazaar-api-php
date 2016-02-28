@@ -48,7 +48,6 @@ class FileTokenStorage implements TokenStorageInterface
         }
 
         return null;
-
     }
 
     /**
