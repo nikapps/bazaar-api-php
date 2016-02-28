@@ -23,7 +23,7 @@ A PHP API wrapper for [Cafebazaar REST API (v2)](https://cafebazaar.ir/developer
     - [Examples](#examples)
     - [Dependencies](#dependencies)
     - [Testing](#testing)
-    - [Official Documentation:](#official-documentation)
+    - [Official Documentation](#official-documentation)
     - [Contribute](#contribute)
     - [License](#license)
     - [Donation](#donation)
@@ -213,7 +213,7 @@ Run:
 phpunit
 ```
 
-## Official Documentation:
+## Official Documentation
 
 * [Developer API (Persian/Farsi)](https://cafebazaar.ir/developers/docs/developer-api/v2/getting-started/?l=fa)
 * [Developer API (English)](https://cafebazaar.ir/developers/docs/developer-api/v2/getting-started/?l=en)
