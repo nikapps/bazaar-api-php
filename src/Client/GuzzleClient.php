@@ -27,7 +27,7 @@ class GuzzleClient implements ClientInterface
      * @param array $options
      * @return array
      */
-    public function get($url, array $options)
+    public function get($url, array $options = [])
     {
         try {
             $response = $this->client->get($url, $options);
@@ -51,7 +51,7 @@ class GuzzleClient implements ClientInterface
      * @param array $options
      * @return array
      */
-    public function post($url, array $options)
+    public function post($url, array $options = [])
     {
         try {
             $response = $this->client->post($url, $options);

@@ -11,7 +11,7 @@ interface ClientInterface
      * @param array $options
      * @return array
      */
-    public function get($url, array $options);
+    public function get($url, array $options = []);
 
     /**
      * Send a post request
@@ -20,5 +20,5 @@ interface ClientInterface
      * @param array $options
      * @return array
      */
-    public function post($url, array $options);
+    public function post($url, array $options = []);
 }
