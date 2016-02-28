@@ -1,10 +1,12 @@
 # Bazaar-Api-PHP (BazaarApi for PHP)
 
+**It works only with api v1. If you are looking for v2 please go to [branch master](https://github.com/nikapps/bazaar-api-php/tree/master)**
+
 ## Installation
 Using [Composer](https://getcomposer.org), add this [package](https://packagist.org/packages/nikapps/bazaar-api-php) dependency to your composer.json :
 
 ```
-composer require nikapps/bazaar-api-php
+composer require "nikapps/bazaar-api-php ~1.0"
 ```
 
 
