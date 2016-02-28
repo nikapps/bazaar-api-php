@@ -16,7 +16,7 @@ abstract class Model
     {
         $this->response = $response;
 
-        if($this->hasError()) {
+        if ($this->hasError()) {
             $this->parseError();
         } else {
             $this->parse();
@@ -26,7 +26,9 @@ abstract class Model
     protected function parseError()
     {
         $this->error = $this->response['error'];
-        $this->errorDescription = $this->response['error_description'];
+        $this->errorDescription = isset($this->response['error_description'])
+            ? $this->response['error_description']
+            : $this->response['error'];
     }
 
     abstract protected function parse();
