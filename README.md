@@ -4,8 +4,29 @@ A PHP API wrapper for [Cafebazaar REST API (v2)](https://cafebazaar.ir/developer
 
 **If you are looking for version 1.x, please go to [branch v1](https://github.com/nikapps/bazaar-api-php/tree/v1/).**
 
+![CafeBazaar Logo](https://dl.dropboxusercontent.com/u/29141199/bazaar-logo-and-logotype.png?raw=1)
+
 ## Table of Contents
-[TOC]
+- [Bazaar-Api-PHP (BazaarApi for PHP)](#bazaar-api-php-bazaarapi-for-php)
+    - [Table of Contents](#table-of-contents)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+        - [Create a client](#create-a-client)
+        - [Getting refresh token](#getting-refresh-token)
+        - [Setting up config](#setting-up-config)
+    - [Usage](#usage)
+        - [Purchase](#purchase)
+        - [Subscription](#subscription)
+        - [Cancel Subscription (Unsubscribe)](#cancel-subscription-unsubscribe)
+    - [Customization](#customization)
+        - [Custom Token Storage](#custom-token-storage)
+    - [Examples](#examples)
+    - [Dependencies](#dependencies)
+    - [Testing](#testing)
+    - [Official Documentation:](#official-documentation)
+    - [Contribute](#contribute)
+    - [License](#license)
+    - [Donation](#donation)
 
 
 ## Installation
