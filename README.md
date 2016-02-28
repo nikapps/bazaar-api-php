@@ -87,7 +87,7 @@ $token = $bazaar->token('<REDIRECT_URI>');
 echo "Refresh Token: " . $token->refreshToken();
 ~~~
 
-**Here is the full example: [authorization.php](https://github.com/nikapps/bazaar-api-php/examples/authorization.php)**
+**Here is the full example: [authorization.php](https://github.com/nikapps/bazaar-api-php/blob/master/examples/authorization.php)**
 
 
 ### Setting up config
@@ -132,7 +132,7 @@ if ($purchase->failed()) {
 }
 ~~~
 
-**Full Example: [purchase.php](https://github.com/nikapps/bazaar-api-php/examples/purchase.php)**
+**Full Example: [purchase.php](https://github.com/nikapps/bazaar-api-php/blob/master/examples/purchase.php)**
 
 Here is the example of getting state of a subscription:
 
@@ -152,7 +152,7 @@ if ($subscription->failed()) {
 }
 ~~~
 
-**Full Example: [subscription.php](https://github.com/nikapps/bazaar-api-php/examples/subscription.php)**
+**Full Example: [subscription.php](https://github.com/nikapps/bazaar-api-php/blob/master/examples/subscription.php)**
 
 ### Cancel Subscription (Unsubscribe)
 
@@ -168,7 +168,7 @@ if ($unsubscribe->successful()) {
 }
 ~~~
 
-**Full Example: [unsubscribe.php](https://github.com/nikapps/bazaar-api-php/examples/unsubscribe.php)**
+**Full Example: [unsubscribe.php](https://github.com/nikapps/bazaar-api-php/blob/master/examples/unsubscribe.php)**
 
 ## Customization
 
@@ -199,7 +199,7 @@ class CustomTokenStorage implements TokenStorageInterface {
 
 ## Examples
 
-See: [https://github.com/nikapps/bazaar-api-php/examples/](https://github.com/nikapps/bazaar-api-php/examples/)
+See: [https://github.com/nikapps/bazaar-api-php/blob/master/examples/](https://github.com/nikapps/bazaar-api-php/blob/master/examples/)
 
 ## Dependencies
 
