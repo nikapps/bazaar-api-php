@@ -7,17 +7,21 @@ class MemoryTokenStorage implements TokenStorageInterface
 {
 
     /**
-     * @var Token
+     * token object
+     *
+     * Token
      */
     protected $token;
 
     /**
+     * expire time
+     *
      * @var int
      */
     protected $expireTime;
 
     /**
-     * @param Token $token
+     * {@inheritdoc}
      */
     public function save(Token $token)
     {
@@ -25,6 +29,9 @@ class MemoryTokenStorage implements TokenStorageInterface
         $this->expireTime = $token->lifetime() + time();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function retrieve()
     {
         if (is_null($this->token)) {
@@ -34,6 +41,9 @@ class MemoryTokenStorage implements TokenStorageInterface
         return $this->token->accessToken();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function expired()
     {
         return time() > $this->expireTime;

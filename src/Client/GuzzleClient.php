@@ -7,6 +7,8 @@ use GuzzleHttp\Exception\RequestException;
 class GuzzleClient implements ClientInterface
 {
     /**
+     * Guzzle client
+     *
      * @var Client
      */
     private $client;
@@ -21,11 +23,7 @@ class GuzzleClient implements ClientInterface
     }
 
     /**
-     * Send a get request
-     *
-     * @param $url
-     * @param array $options
-     * @return array
+     * {@inheritdoc}
      */
     public function get($url, array $options = [])
     {
@@ -45,11 +43,7 @@ class GuzzleClient implements ClientInterface
     }
 
     /**
-     * Send a post request
-     *
-     * @param $url
-     * @param array $options
-     * @return array
+     * {@inheritdoc}
      */
     public function post($url, array $options = [])
     {

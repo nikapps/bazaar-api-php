@@ -6,12 +6,15 @@ use Nikapps\BazaarApi\Models\Token;
 class FileTokenStorage implements TokenStorageInterface
 {
     /**
+     * Path to token file
+     *
      * @var string
      */
     private $path;
 
     /**
      * FileTokenStorage constructor.
+     *
      * @param string $path
      */
     public function __construct($path)
@@ -19,7 +22,25 @@ class FileTokenStorage implements TokenStorageInterface
         $this->path = $path;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function save(Token $token)
+    {
+        $expireTime = time() + $token->lifetime();
 
+        $data = json_encode([
+            'expireTime' => $expireTime,
+            'token' => $token->accessToken()
+        ]);
+
+        file_put_contents($this->path, $data);
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
     public function retrieve()
     {
         if (!is_null($data = $this->read())) {
@@ -30,6 +51,9 @@ class FileTokenStorage implements TokenStorageInterface
 
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function expired()
     {
         if (!is_null($data = $this->read())) {
@@ -39,6 +63,11 @@ class FileTokenStorage implements TokenStorageInterface
         return true;
     }
 
+    /**
+     * Read token file
+     *
+     * @return array|null
+     */
     protected function read()
     {
         if (!file_exists($this->path)) {
@@ -52,20 +81,5 @@ class FileTokenStorage implements TokenStorageInterface
         }
 
         return $data;
-    }
-
-    /**
-     * @param Token $token
-     */
-    public function save(Token $token)
-    {
-        $expireTime = time() + $token->lifetime();
-
-        $data = json_encode([
-            'expireTime' => $expireTime,
-            'token' => $token->accessToken()
-        ]);
-
-        file_put_contents($this->path, $data);
     }
 }

@@ -6,6 +6,11 @@ use Nikapps\BazaarApi\Storage\TokenStorageInterface;
 
 class Config
 {
+    /**
+     * Options
+     *
+     * @var array
+     */
     protected $options;
 
     /**
@@ -28,31 +33,62 @@ class Config
         $this->options = array_merge($default, $options);
     }
 
+    /**
+     * Get endpoint url
+     *
+     * @param string $endpoint
+     * @return string
+     */
     public function url($endpoint)
     {
         return $this->options["$endpoint-url"];
     }
 
+    /**
+     * Get client secret
+     *
+     * @return string
+     */
     public function clientSecret()
     {
         return $this->options['client-secret'];
     }
 
+    /**
+     * Get client id
+     *
+     * @return string
+     */
     public function clientId()
     {
         return $this->options['client-id'];
     }
 
+    /**
+     * Get token storage
+     *
+     * @return string
+     */
     public function storage()
     {
         return $this->options['storage'];
     }
 
+    /**
+     * Set a token storage
+     *
+     * @param TokenStorageInterface $storage
+     */
     public function setStorage(TokenStorageInterface $storage)
     {
         $this->options['storage'] = $storage;
     }
 
+    /**
+     * Get refresh token
+     *
+     * @return string
+     */
     public function refreshToken()
     {
         return $this->options['refresh-token'];
