@@ -11,15 +11,10 @@
     "iap"
   ],
   "license": "MIT",
-  "type": "project",
   "authors": [
     {
       "name": "Ali Borhani",
       "email": "aliborhani1@gmail.com"
-    },
-    {
-      "name": "Hossein Moradgholi",
-      "email": "h.moradgholi@icloud.com"
     }
   ],
   "require": {
