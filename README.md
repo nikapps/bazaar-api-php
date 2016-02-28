@@ -1,249 +1,188 @@
 # Bazaar-Api-PHP (BazaarApi for PHP)
 
+A PHP API wrapper for [Cafebazaar REST API (v2)](https://cafebazaar.ir/developers/docs/developer-api/v2/introduction/?l=fa).
+
+**If you are looking for version 1.x, please go to [branch v1](https://github.com/nikapps/bazaar-api-php/tree/v1/).**
+
+## Table of Contents
+[TOC]
+
+
 ## Installation
-Using [Composer](https://getcomposer.org), add this [package](https://packagist.org/packages/nikapps/bazaar-api-php) dependency to your composer.json :
+
+If you don't have [Composer](https://getcomposer.org), first you should install it on your system:
+
+```
+https://getcomposer.org
+
+```
+
+Now run this command to install [the package](https://packagist.org/packages/nikapps/bazaar-api-php):
 
 ```
 composer require nikapps/bazaar-api-php
 ```
 
+* **Notice:** if you don't know anything about **composer**, please read this [article](https://scotch.io/tutorials/a-beginners-guide-to-composer). 
+
 
 ## Configuration
 
-#### Create client
-First of all, you should go to your cafebazaar panel and get `client id` and `client secret`.
+### Create a client
 
-* Login to your panel and go to this url: *(Developer API section)*
-`http://pardakht.cafebazaar.ir/panel/developer-api/?l=fa`
+First, you should go to your cafebazaar panel and create a client.
 
-* Click on `new client` and enter your redirect uri (it's needed to get returned `code` and `refresh_token`)
+* Login to your panel and go to this url:
+`https://pardakht.cafebazaar.ir/panel/developer-api/?l=fa&nd=False`
 
-* Change your configuration file and set your `client_id`, `client_secret` and `redirect_uri`.
+* Click on `new client` and enter your redirect uri (it is needed for getting returned `code` and `refresh_token`. see the [next section](#getting-refresh-token))
 
-#### Account Config
-Before you can call any api call, you should set your credentials.
+now you have your `client-id` and `client-secret`.
 
-~~~php
-$accountConfig = new \Nikapps\BazaarApiPhp\Configs\AccountConfig();
 
-$accountConfig->setClientId('your_client_id')
-              ->setClientSecret('your_client_secret')
-              ->setRefreshToken('your_refresh_token');
+### Getting refresh token
 
-//for getting refresh-token
-$accountConfig->setCode('your_returned_code')
-              ->setRedirectUri('your_redirect_uri');
-
-~~~
-
-**for getting refresh token see next step.**
-
-#### Get refresh token
 * Open this url in your browser:
 
 ```
-https://pardakht.cafebazaar.ir/auth/authorize/?response_type=code&access_type=offline&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>
+https://pardakht.cafebazaar.ir/devapi/v2/auth/authorize/?response_type=code&access_type=offline&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>
 ```
-*- don't forget to change `<REDIRECT_URI>` and `<CLIENT_ID>`.*
+
+
+**Don't forget to change `<REDIRECT_URI>` and `<CLIENT_ID>`.**
 
 * After clicking on accept/confirm button, you will be redirected to: `<REDIRECT_URI>?code=<CODE>`
 
-*- copy  `<CODE>`*
-
-
-* Run code:
+* `<REDIRECT_URI>` is url of this file:
 
 ~~~php
-$bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
+$bazaar = new Bazaar(new Config([
+    'client-secret' => 'your-client-secret',
+    'client-id' => 'your-client-id'
+]));
 
-$authorizationRequest = new \Nikapps\BazaarApiPhp\Models\Requests\AuthorizationRequest();
+$token = $bazaar->token('<REDIRECT_URI>');
 
-$fetchRefreshToken = $bazaarApi->fetchRefreshToken($authorizationRequest);
-
-//echo refresh token
-echo $fetchRefreshToken->getRefreshToken();
+echo "Refresh Token: " . $token->refreshToken();
 ~~~
 
-* Copy `refresh_token` and save it.
+**Here is the full example: [authorization.php](https://github.com/nikapps/bazaar-api-php/examples/authorization.php)**
 
-#### Done!
+
+### Setting up config
+
+As you can see in previous section, we create a `Config` instance and set `client-id` and `client-secret`.
+
+For other api calls, we also should set `refresh-token` and `storage`.
+
+~~~php
+$bazaar = new Bazaar(new Config([
+    'client-secret' => 'your-client-secret',
+    'client-id' => 'your-client-id',
+    'refresh-token' => 'refresh-token-123456',
+    'storage' => new FileTokenStorage(__DIR__ . '/token.json')
+]));
+~~~
+
+The `storage` handles storing and retrieving `access_token`. in this package we have two different storages:
+
+* `FileTokenStorage` which store token in a file.
+* `MemoryTokenStorage` which does not persist the token and you can only use it in current request.
+
 
 
 ## Usage
 
 
-#### Purchase
+### Purchase
+
+Here is the example of getting state of a purchase:
 
 ~~~php
-//creating token manager based on file
-$tokenManager = new \Nikapps\BazaarApiPhp\TokenManagers\FileTokenManager();
-$tokenManager->setPath('/path/to/stored/token.json');
+$purchase = $bazaar->purchase('com.example.app', 'product-id (sku)', 'purchase-token');
 
-$bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
-$bazaarApi->setTokenManager($tokenManager);
-
-//creating purchase request model
-$purchaseRequest = new \Nikapps\BazaarApiPhp\Models\Requests\PurchaseStatusRequest();
-$purchaseRequest->setPackage('com.package.name');
-$purchaseRequest->setProductId('product_id');
-$purchaseRequest->setPurchaseToken('purchase_token');
-
-//get purchase status
-$purchase = $bazaarApi->getPurchase($purchaseRequest);
-
-echo "Developer Payload: " . $purchase->getDeveloperPayload();
-echo "PurchaseTime: " . $purchase->getPurchaseTime(); //instance of Carbon
-echo "Consumption State: " . $purchase->getConsumptionState();
-echo "Purchase State: " . $purchase->getPurchaseState();
+if ($purchase->failed()) {
+    echo $purchase->errorDescription();
+} else {
+    echo "Purchased: " . $purchase->purchased();
+    echo "Consumed: " . $purchase->consumed();
+    echo "Developer Payload: " . $purchase->developerPayload();
+    echo "Purchase Time (Timestamp in ms): " . $purchase->time();
+}
 ~~~
 
-#### Subscription
+**Full Example: [purchase.php](https://github.com/nikapps/bazaar-api-php/examples/purchase.php)**
+
+Here is the example of getting state of a subscription:
+
+
+### Subscription
 
 ~~~php
-//creating token manager based on file
-$tokenManager = new \Nikapps\BazaarApiPhp\TokenManagers\FileTokenManager();
-$tokenManager->setPath('/path/to/stored/token.json');
+$subscription = $bazaar->subscription('com.example.app', 'subscription-id (sku)', 'purchase-token');
 
-$bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
-$bazaarApi->setTokenManager($tokenManager);
-
-//creating subscription request model
-$subscriptionRequest = new \Nikapps\BazaarApiPhp\Models\Requests\SubscriptionStatusRequest();
-$subscriptionRequest->setPackage('com.package.name');
-$subscriptionRequest->setSubscriptionId('subscription_id');
-$subscriptionRequest->setPurchaseToken('purchase_token');
-
-//get subscription status
-$subscription = $bazaarApi->getSubscription($subscriptionRequest);
-
-echo "Initiation Time: " . $subscription->getInitiationTime(); // instance of Carbon
-echo "Expiration Time: " . $subscription->getExpirationTime(); // instance of Carbon
-echo "Auto Renewing: " . $subscription->isAutoRenewing(); // boolean
+if ($subscription->failed()) {
+    echo $subscription->errorDescription();
+} else {
+    echo "Start Time (Timestamp in ms): " . $subscription->startTime(); // initiationTime()
+    echo "End Time (Timestamp in ms): " . $subscription->endTime(); // expirationTime(), nextTime()
+    echo "Is auto renewing? " . $subscription->autoRenewing();
+    echo "Is expired? (end time is past) " . $subscription->expired();
+}
 ~~~
 
-#### Cancel Subscription
+**Full Example: [subscription.php](https://github.com/nikapps/bazaar-api-php/examples/subscription.php)**
+
+### Cancel Subscription (Unsubscribe)
+
+Here is the example of how you can cancel a subscription:
 
 ~~~php
-//creating token manager based on file
-$tokenManager = new \Nikapps\BazaarApiPhp\TokenManagers\FileTokenManager();
-$tokenManager->setPath('/path/to/stored/token.json');
+$unsubscribe = $bazaar->unsubscribe('com.example.app', 'subscription-id (sku)', 'purchase-token');
 
-$bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
-$bazaarApi->setTokenManager($tokenManager);
-
-//creating cancel subscription request model
-$cancelSubscriptionRequest = new \Nikapps\BazaarApiPhp\Models\Requests\CancelSubscriptionRequest();
-$cancelSubscriptionRequest->setPackage('com.package.name');
-$cancelSubscriptionRequest->setSubscriptionId('subscription_id');
-$cancelSubscriptionRequest->setPurchaseToken('purchase_token');
-
-//cancel subscription
-$cancelSubscription = $bazaarApi->cancelSubscription($cancelSubscriptionRequest);
-
-echo "Is Cancelled: " . $cancelSubscription->isCancelled();
+if ($unsubscribe->successful()) {
+    echo "The subscription has been successfully cancelled!";
+} else {
+    echo $unsubscribe->errorDescription();
+}
 ~~~
 
-#### Refresh Token
-
-~~~php
-$bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
-
-$refreshTokenRequest = new \Nikapps\BazaarApiPhp\Models\Requests\RefreshTokenRequest();
-$refreshToken = $bazaarApi->refreshToken($refreshTokenRequest);
-
-echo "Access Token: " . $refreshToken->getAccessToken();
-~~~
-
-## Exceptions
-* **BazaarApiException**
-
-*Parent of other exceptions.*
-
-* **ExpiredAccessTokenException**
-
-*When token is expired*
-
-* **InvalidJsonException**
-
-*When response has invalid json key(s)*
-
-* **InvalidPackageNameException**
-
-*When package name is invalid*
-
-* **InvalidTokenException**
-
-*When token is invalid*
-
-* **NetworkErrorException**
-
-*Guzzle ClientExcpetion*
-
-you can get guzzle exception by `getClientException`
-
-
-* **NotFoundException**
-
-*When purchase or subscrtion is not found*
+**Full Example: [unsubscribe.php](https://github.com/nikapps/bazaar-api-php/examples/unsubscribe.php)**
 
 ## Customization
 
-#### Custom Token Manager
+### Custom Token Storage
 
-Token manager manages loading,storing and checking expiration of access token. By default you can use `FileTokenManager` is provided by this package and store access token in file.
-
-If you want to have a custom token mangaer and storing tokens in your database or cache, you can implement `TokenManagerInterface`.
+If you want to store the token somewhere else (maybe database or redis?!), you can implement the `TokenStorageInterface`
 
 ~~~php
-class CustomTokenManager implements \Nikapps\BazaarApiPhp\TokenManagers\TokenManagerInterface{
+class CustomTokenStorage implements TokenStorageInterface {
 
-    /**
-     * when access token is received from CafeBazaar, this method will be called.
-     *
-     * @param string $accessToken access-token
-     * @param int $ttl number of seconds remaining until the token expires
-     * @return mixed
-     */
-    public function storeToken($accessToken, $ttl) {
-        // TODO: Implement storeToken() method.
+    public function save(Token $token)
+    {
+    	// store access token
     }
 
-    /**
-     * when access token is needed, this method will be called.
-     *
-     * @return string
-     */
-    public function loadToken() {
-        // TODO: Implement loadToken() method.
+    public function retrieve()
+    {
+    	// return access token
     }
 
-    /**
-     * should we refresh token? (based on ttl)
-     *
-     * @return bool
-     */
-    public function isTokenExpired() {
-        // TODO: Implement isTokenExpired() method.
+    public function expired()
+    {
+    	// is token expired?
     }
 
 }
 ~~~
 
-Then, you can use it in this way :
+## Examples
 
-~~~php
-$bazaarApi = new \Nikapps\BazaarApiPhp\BazaarApi($accountConfig);
-
-$customTokenManager = new CustomTokenManager();
-$bazaarApi->setTokenManager($customTokenManager);
-~~~
-
+See: [https://github.com/nikapps/bazaar-api-php/examples/](https://github.com/nikapps/bazaar-api-php/examples/)
 
 ## Dependencies
 
-* [GuzzleHttp 5.2.x](https://packagist.org/packages/guzzlehttp/guzzle)
-* [Carbon 1.x](https://packagist.org/packages/nesbot/carbon)
-
+* [GuzzleHttp (~5.3|~6.1)](https://packagist.org/packages/guzzlehttp/guzzle)
 
 
 ## Testing
@@ -253,89 +192,11 @@ Run:
 phpunit
 ```
 
-## Bazaar Responses
+## Official Documentation:
 
-#### Purchase: 
-![Purchase Response - CafeBazaar Api](https://www.dropbox.com/s/0jya8qr0hamvdyb/purchase.png?raw=1)
+* [Developer API (Persian/Farsi)](https://cafebazaar.ir/developers/docs/developer-api/v2/getting-started/?l=fa)
+* [Developer API (English)](https://cafebazaar.ir/developers/docs/developer-api/v2/getting-started/?l=en)
 
-#### Subscription: 
-![Subscription Response - CafeBazaar Api](https://www.dropbox.com/s/gph2in3ii7jnmcy/subscription.png?raw=1)
-
-#### Cancel Subscription: 
-![Cancel Subscription Response - CafeBazaar Api](https://www.dropbox.com/s/2qhmisxdgzicdek/cancel_subscription.png?raw=1)
-
-## Simple Demo!
-
-This is a very simple demo:
-
-~~~php
-<?php
-use Nikapps\BazaarApiPhp\BazaarApi;
-use Nikapps\BazaarApiPhp\Configs\AccountConfig;
-use Nikapps\BazaarApiPhp\Exceptions\NotFoundException;
-use Nikapps\BazaarApiPhp\Models\Requests\PurchaseStatusRequest;
-use Nikapps\BazaarApiPhp\Models\Responses\Purchase;
-use Nikapps\BazaarApiPhp\TokenManagers\FileTokenManager;
-
-//load composer autoloader
-require_once __DIR__ . '/vendor/autoload.php';
-
-
-//set account config
-$accountConfig = new AccountConfig();
-
-$accountConfig->setClientId('your_client_id')
-    ->setClientSecret('your_client_secret')
-    ->setRefreshToken('your_refresh_token');
-
-//set file token manager
-$fileTokenManager = new FileTokenManager();
-$fileTokenManager->setPath(__DIR__ . '/somewhere/safe/token.json');
-
-//initializing BazaarApi
-$bazaarApi = new BazaarApi();
-$bazaarApi->setAccountConfig($accountConfig);
-$bazaarApi->setTokenManager($fileTokenManager);
-
-//creating a purchase status request
-$purchaseStatusRequest = new PurchaseStatusRequest();
-$purchaseStatusRequest->setPackage('com.package.name')
-    ->setProductId('product_id')
-    ->setPurchaseToken('purchase_token');
-
-//REQUESTING:
-try {
-    //get purchase status from cafe bazaar
-    $purchase = $bazaarApi->getPurchase($purchaseStatusRequest);
-
-    if ($purchase->getConsumptionState() == Purchase::CONSUMPTION_STATUS_CONSUMED) {
-        // purchase is consumed
-    }
-
-    if ($purchase->getPurchaseState() == Purchase::PURCHASE_STATUS_PURCHASED) {
-        // purchased
-    }
-
-    echo "Purchase Time: " . $purchase->getPurchaseTime();
-
-} catch (NotFoundException $e) {
-    // purchase is not found!
-
-} catch (Exception $e) {
-
-    /*
-     * Other exceptions:
-     *
-     * @throws Exceptions\ExpiredAccessTokenException
-     * @throws Exceptions\InvalidPackageNameException
-     * @throws Exceptions\InvalidTokenException
-     * @throws Exceptions\NetworkErrorException
-     * @throws Exceptions\InvalidJsonException
-     */
-
-}
-
-~~~
 
 ## Contribute
 
@@ -347,7 +208,7 @@ This project released under the [MIT License](http://opensource.org/licenses/mit
 
 ```
 /*
- * Copyright (C) 2015 NikApps Team.
+ * Copyright (C) 2015-2016 NikApps Team.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
