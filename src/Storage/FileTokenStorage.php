@@ -41,9 +41,13 @@ class FileTokenStorage implements TokenStorageInterface
 
     protected function read()
     {
+        if (!file_exists($this->path)) {
+            return null;
+        }
+
         $data = json_decode(file_get_contents($this->path), true);
 
-        if (empty($data) || !isset($data['token'], $data['expireTime'])) {
+        if (!$data || empty($data) || !isset($data['token'], $data['expireTime'])) {
             return null;
         }
 
