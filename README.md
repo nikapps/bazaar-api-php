@@ -178,7 +178,8 @@ if ($unsubscribe->successful()) {
 If you want to store the token somewhere else (maybe database or redis?!), you can implement the `TokenStorageInterface`
 
 ~~~php
-class CustomTokenStorage implements TokenStorageInterface {
+class CustomTokenStorage implements TokenStorageInterface 
+{
 
     public function save(Token $token)
     {
