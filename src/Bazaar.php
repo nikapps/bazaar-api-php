@@ -95,6 +95,21 @@ class Bazaar
     }
 
     /**
+     * Authorize the client (Alias of token())
+     *
+     * @param string $redirectUrl
+     * @param array $input
+     *
+     * @see static::token()
+     *
+     * @return Token
+     */
+    public function authorize($redirectUrl, array $input = [])
+    {
+        return $this->token($redirectUrl, $input);
+    }
+
+    /**
      * Fetch state of a purchase
      *
      * @param string $package
