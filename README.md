@@ -2,7 +2,7 @@
 
 A PHP API wrapper for [Cafebazaar REST API (v2)](https://cafebazaar.ir/developers/docs/developer-api/v2/introduction/?l=fa).
 
-**If you are looking for version 1.x, please go to [branch v1](https://github.com/nikapps/bazaar-api-php/tree/v1/).**
+**If you are looking for version 1.x, please visit [branch v1](https://github.com/nikapps/bazaar-api-php/tree/v1/).**
 
 ![CafeBazaar Logo](https://dl.dropboxusercontent.com/u/29141199/bazaar-logo-and-logotype.png?raw=1)
 
